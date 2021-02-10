@@ -1,0 +1,17 @@
+.dflex {
+    display: flex;
+    justify-content: center;
+}
+
+.dflex > * {
+    padding: 10px 15px;
+    background-color: #959393;
+    margin: 0 10px;
+}
+
+.text {
+    width: 1200px;
+    padding: 10px;
+    border: 2px solid brown;
+    margin: 50px auto;
+}
