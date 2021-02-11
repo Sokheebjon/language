@@ -1,14 +1,18 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import i18next from "i18next";
+import {useTranslation} from "react-i18next";
+import {Link} from 'react-router-dom'
 import './style.css'
-import {Store} from "../Store";
 
 export default function Language() {
-    const {dictionary,  userLanguageChange} = useContext(Store);
+    const {t, i18n} = useTranslation();
+    // const lang = i18n.language;
 
-    function handleChange(e) {
-        userLanguageChange(e)
+
+    function handleChange(lang) {
+        i18next.changeLanguage(lang);
+        window.localStorage.setItem('lang', lang);
     }
-
 
     return (
         <div>
@@ -24,9 +28,10 @@ export default function Language() {
                 </button>
             </div>
             <div className="text">
-                <h1>{dictionary.header}</h1>
-                <p>{dictionary.text}</p>
+                <h1>{t('header')}</h1>
+                <p>{t('text')}</p>
             </div>
+            <Link to="page">{t('link')}</Link>
         </div>
     )
 }
